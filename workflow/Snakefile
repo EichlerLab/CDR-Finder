@@ -390,8 +390,8 @@ checkpoint call_cdrs:
 
 rule format_files_for_cenplot:
     input:
-        script="workflow/scripts/format_files_for_cenplot.py",
-        plot_layout="workflow/scripts/plot_layout.toml",
+        script=workflow.source_path("scripts/format_files_for_cenplot.py"),
+        plot_layout=workflow.source_path("scripts/plot_layout.toml"),
         binned_freq_bed=rules.add_target_bed_coords_windows.output,
         cdr_bed=rules.call_cdrs.output,
         rm_bed=rules.add_target_bed_coords_rm.output,
